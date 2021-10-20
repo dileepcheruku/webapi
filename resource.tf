@@ -1,0 +1,26 @@
+resource "aws_instance" "main" {
+  ami                    = "ami-074cce78125f09d61"
+  instance_type          = "t2.micro" 
+}
+
+module "vpc1" {
+  source = "terraform-aws-modules/vpc/aws"
+  name = "prodvpc"
+  cidr = "10.0.0.0/16"
+}
+
+module "vpc2" {
+  source = "terraform-aws-modules/vpc/aws"
+  name = "Nonprodvpc"
+  cidr = "10.0.0.0/16"
+}
+/*
+resource "aws_vpc" "vpc" {
+  cidr_block    =  "10.0.0.0/16"
+  instance_tenancy = "default"
+
+  tags  = {
+     Name = "vpc"
+}
+}
+*/
