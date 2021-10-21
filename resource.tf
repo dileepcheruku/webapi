@@ -4,6 +4,7 @@ module "vpc1" {
   cidr = "10.0.0.0/16"
 }
 
+  
 module "vpc2" {
   source = "terraform-aws-modules/vpc/aws"
   name = "Nonprodvpc"
