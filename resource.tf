@@ -1,3 +1,4 @@
+resource {
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
@@ -27,4 +28,5 @@ resource "aws_vpc" "vpc" {
      Name = "vpc"
 }
 }
+  }
 */
