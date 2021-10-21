@@ -11,7 +11,7 @@ module "vpc2" {
   cidr = "10.0.0.0/16"
 }
   
-  
+  /*
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
@@ -22,5 +22,5 @@ module "ec2_instance" {
  
 }
 
-
+*/
 
