@@ -18,7 +18,7 @@ module "ec2_instance" {
 
   ami                    = "ami-074cce78125f09d61"
   instance_type          = "t2.micro"
-
+ 
 }
 
 
