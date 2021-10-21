@@ -1,7 +1,11 @@
-resource "aws_instance" "main" {
+module "ec2_instance" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+
+  name = "single-instance"
+
   ami                    = "ami-074cce78125f09d61"
-  instance_type          = "t2.micro" 
-}
+  instance_type          = "t2.micro"
+
 
 module "vpc1" {
   source = "terraform-aws-modules/vpc/aws"
