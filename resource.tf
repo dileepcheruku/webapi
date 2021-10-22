@@ -44,8 +44,8 @@ resource "aws_network_interface" "foo" {
   }
 }
   
-  resource "aws_security_group" "allow_tls" {
-  name        = "allow_tls"
+  resource "aws_security_group" "Docker" {
+  name        = "Docker"
   description = "Allow TLS inbound traffic"
   vpc_id      = aws_vpc.my_vpc.id
 
@@ -56,8 +56,8 @@ resource "aws_network_interface" "foo" {
       from_port        = 443
       to_port          = 443
       protocol         = "tcp"
-      cidr_blocks      = [aws_vpc.my_vpc.cidr_block]
-      ipv6_cidr_blocks = [aws_vpc.my_vpc.ipv6_cidr_block]
+      cidr_blocks      = [0.0.0.0/0]
+      ipv6_cidr_blocks = []
     }
   ]
 
@@ -72,7 +72,7 @@ resource "aws_network_interface" "foo" {
   ]
 
   tags = {
-    Name = "allow_tls"
+    Name = "Docker"
   }
 }
 
