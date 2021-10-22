@@ -11,8 +11,4 @@ resource "aws_instance" "app_server" {
   }
 }
 
-resource "aws_security_group" "Docker" {
-  tags = {
-    type = "terraform-test-security-group"
-  }
-}
+
