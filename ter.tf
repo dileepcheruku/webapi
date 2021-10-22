@@ -1,6 +1,6 @@
 
 resource "aws_instance" "app_server" {
-  ami             = "ami-0277b52859bac6f4b"
+  ami             = "ami-074cce78125f09d61" 
   instance_type   = "t2.micro"
   key_name        = "vicky"
   user_data	= file("file.sh")
