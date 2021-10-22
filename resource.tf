@@ -56,8 +56,8 @@ resource "aws_network_interface" "foo" {
       from_port        = 443
       to_port          = 443
       protocol         = "tcp"
-      cidr_blocks      = ["0.0.0.0/0"]
-      ipv6_cidr_blocks = []
+      cidr_blocks      = "null"
+      ipv6_cidr_blocks = "null"
     }
   ]
 
@@ -66,8 +66,8 @@ resource "aws_network_interface" "foo" {
       from_port        = 0
       to_port          = 0
       protocol         = "-1"
-      cidr_blocks      = ["0.0.0.0/0"]
-      ipv6_cidr_blocks = ["::/0"]
+      cidr_blocks      = ["null"]
+      ipv6_cidr_blocks = ["null"]
     }
   ]
 
