@@ -3,7 +3,7 @@ variable "environment" {}
 variable "vpc_net_block" {}
 
 variable "deploy_availability_zones" {
-  type = "list"
+  type = list
 
   default = [
     "us-west-2a",
@@ -13,7 +13,7 @@ variable "deploy_availability_zones" {
 }
 
 variable "public_subnet_cidrs" {
-  type = "list"
+  type = list
 
   default = [
     ".0.0/20",
@@ -23,7 +23,7 @@ variable "public_subnet_cidrs" {
 }
 
 variable "private_subnet_cidrs" {
-  type = "list"
+  type = list
 
   default = [
     ".48.0/20",
@@ -46,6 +46,4 @@ variable "default_vpc_id" {
   default = "vpc-856305ee"
 }
 
-variable "defaultRouteTables" {
-  default = "rtb-060d4f1c922549f8c"
-}
+
