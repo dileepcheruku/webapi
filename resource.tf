@@ -107,7 +107,7 @@ resource "aws_route_table_association" "PrivateRouteTableAssoc" {
 
 # peering env VPC with default VPC where jenkins executes terraform to create instances and invokes anisble
 resource "aws_vpc_peering_connection" "defaultPeering" {
-  peer_owner_id = "304370290957"          # Change this with your AWS account ID
+  peer_owner_id = "611982896649"          # Change this with your AWS account ID
   peer_vpc_id   = "${var.default_vpc_id}"
   vpc_id        = "${aws_vpc.infra.id}"
   auto_accept   = true
