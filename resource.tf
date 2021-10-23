@@ -27,7 +27,7 @@ module "vpc2" {
   
  resource "aws_subnet" "my_subnet" {
   vpc_id            = aws_vpc.my_vpc.id
-  cidr_block        = "172.16.10.0/24"
+  cidr_block        = "10.0.0.0/24"
   
 
   tags = {
@@ -47,7 +47,7 @@ resource "aws_network_interface" "foo" {
   module "web_server_sg" {
   source = "terraform-aws-modules/security-group/aws//modules/http-80"
 
-  name        = "web-server"
+  name        = "Docker"
   description = "Security group for web-server with HTTP ports open within VPC"
   vpc_id      = aws_vpc.my_vpc.id
 
