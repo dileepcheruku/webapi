@@ -55,12 +55,7 @@ resource "aws_network_interface" "foo" {
 resource "aws_instance" "foo" {
   ami             = "ami-074cce78125f09d61" 
   instance_type   = "t2.micro"
-  user_data	= file("file.sh")
-  
- 
-  
-  
-  
+  user_data	= file("file.sh") 
   network_interface {
   network_interface_id = aws_network_interface.foo.id
   device_index         = 0
