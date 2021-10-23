@@ -37,7 +37,7 @@ module "vpc2" {
 
 resource "aws_network_interface" "foo" {
   subnet_id   = aws_subnet.my_subnet.id
-  security_group_id = "sg-0f7075e93c26187ae"
+  
 }
 
   module "web_server_sg" {
@@ -56,6 +56,7 @@ resource "aws_instance" "foo" {
   instance_type   = "t2.micro"
   key_name        = "vicky"
   user_data	= file("file.sh")
+  security_group_id = "sg-0f7075e93c26187ae"
   
   
   
