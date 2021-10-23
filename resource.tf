@@ -40,7 +40,7 @@ resource "aws_network_interface" "foo" {
   
 }
 
-  module "web_server_sg" {
+  module "web_server_sg" "public"{
   source = "terraform-aws-modules/security-group/aws//modules/http-80"
 
   name        = "Docker"
@@ -48,6 +48,7 @@ resource "aws_network_interface" "foo" {
   vpc_id      = aws_vpc.my_vpc.id
 
   ingress_cidr_blocks = ["10.10.0.0/16"]
+   security_group_id = aws_security_group.public.id
 }
 
 
@@ -56,7 +57,8 @@ resource "aws_instance" "foo" {
   instance_type   = "t2.micro"
   key_name        = "vicky"
   user_data	= file("file.sh")
-  security_group_id = "sg-0f7075e93c26187ae"
+  
+ 
   
   
   
