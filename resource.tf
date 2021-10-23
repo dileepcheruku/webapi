@@ -37,11 +37,7 @@ module "vpc2" {
 
 resource "aws_network_interface" "foo" {
   subnet_id   = aws_subnet.my_subnet.id
-  
-
-  tags = {
-    Name = "primary_network_interface"
-  }
+ 
 }
 
   module "web_server_sg" {
@@ -64,7 +60,7 @@ resource "aws_instance" "koo" {
   
   
     network_interface {
-    network_interface_id = primary_network_interface.foo.id
+    network_interface_id = aws_network_interface.foo.id
     device_index         = 0
   }
 
