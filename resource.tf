@@ -44,9 +44,8 @@ resource "aws_network_interface" "foo" {
   }
 }
 
-  resource {
-       "aws_security_group": {
-            "Docker": {
+  resource  "aws_security_group" "Docker" {
+      
                 "ingress": [
                     {
                         "cidr_blocks": [
