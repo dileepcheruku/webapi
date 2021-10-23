@@ -48,7 +48,7 @@ resource "aws_network_interface" "foo" {
   vpc_id      = aws_vpc.my_vpc.id
 
   ingress_cidr_blocks = ["10.10.0.0/16"]
-   ]
+   
 }
 
 
