@@ -44,32 +44,14 @@ resource "aws_network_interface" "foo" {
   }
 }
 
-  resource  "aws_security_group" "Docker" {
-      
-                "ingress": [
-                    {
-                        "cidr_blocks": [
-                            "0.0.0.0/0"
-                        ],
-                        "description": "HTTPS",
-                        "from_port": 443,
-                        "ipv6_cidr_blocks": null,
-                        "prefix_list_ids": null,
-                        "protocol": "tcp",
-                        "security_groups": null,
-                        "self": null,
-                        "to_port": 443
-                    }
-                ],
-                "vpc_id": "${aws_vpc.example.id}"
-            }
-        },
-        "aws_vpc": {
-            "example": {
-                "cidr_block": "10.0.0.0/16"
-            }
-        }
-    }
+  module "web_server_sg" {
+  source = "terraform-aws-modules/security-group/aws//modules/http-80"
+
+  name        = "web-server"
+  description = "Security group for web-server with HTTP ports open within VPC"
+  vpc_id      = aws_vpc.my_vpc.id
+
+  ingress_cidr_blocks = ["10.10.0.0/16"]
 }
 
 
