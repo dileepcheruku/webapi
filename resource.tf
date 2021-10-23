@@ -43,37 +43,34 @@ resource "aws_network_interface" "foo" {
     Name = "primary_network_interface"
   }
 }
-  
-  resource "aws_security_group" "Docker" {
-  name        = "Docker"
-  description = "Allow TLS inbound traffic"
-  vpc_id      = aws_vpc.my_vpc.id
 
-    
-  ingress = [
-    {
-      description      = "TLS from VPC"
-      from_port        = 443
-      to_port          = 443
-      protocol         = "tcp"
-      cidr_blocks      = ["10.0.0.0/24"]
-      
+  resource {
+       "aws_security_group": {
+            "Docker": {
+                "ingress": [
+                    {
+                        "cidr_blocks": [
+                            "0.0.0.0/0"
+                        ],
+                        "description": "HTTPS",
+                        "from_port": 443,
+                        "ipv6_cidr_blocks": null,
+                        "prefix_list_ids": null,
+                        "protocol": "tcp",
+                        "security_groups": null,
+                        "self": null,
+                        "to_port": 443
+                    }
+                ],
+                "vpc_id": "${aws_vpc.example.id}"
+            }
+        },
+        "aws_vpc": {
+            "example": {
+                "cidr_block": "10.0.0.0/16"
+            }
+        }
     }
-  ]
-
-  egress = [
-    {
-      from_port        = 0
-      to_port          = 0
-      protocol         = "-1"
-      cidr_blocks      = ["10.0.0.0/24"]
-      
-    }
-  ]
-
-  tags = {
-    Name = "Docker"
-  }
 }
 
 
