@@ -37,7 +37,7 @@ module "vpc2" {
 
 resource "aws_network_interface" "foo" {
   subnet_id   = aws_subnet.my_subnet.id
- 
+  security_groups = [ "Docker" ]
 }
 
   module "web_server_sg" {
@@ -51,17 +51,17 @@ resource "aws_network_interface" "foo" {
 }
 
 
-resource "aws_instance" "koo" {
+resource "aws_instance" "foo" {
   ami             = "ami-074cce78125f09d61" 
   instance_type   = "t2.micro"
   key_name        = "vicky"
   user_data	= file("file.sh")
-  security_groups = [ "Docker" ]
   
   
-    network_interface {
-    network_interface_id = aws_network_interface.foo.id
-    device_index         = 0
+  
+  network_interface {
+  network_interface_id = aws_instance.foo.id
+  device_index         = 0
   }
 
   credit_specification {
