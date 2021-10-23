@@ -37,7 +37,7 @@ module "vpc2" {
 
 resource "aws_network_interface" "foo" {
   subnet_id   = aws_subnet.my_subnet.id
-  security_groups = ["${var.vpc_security_group_id}"]
+  security_groups = "sg-0f7075e93c26187ae"
 }
 
   module "web_server_sg" {
