@@ -61,6 +61,16 @@ resource "aws_instance" "foo" {
   key_name        = "vicky"
   user_data	= file("file.sh")
   security_groups = [ "Docker" ]
+  
+  
+    network_interface {
+    network_interface_id = aws_network_interface.foo.id
+    device_index         = 0
+  }
+
+  credit_specification {
+    cpu_credits = "unlimited"
+  }
 
   tags = {
     Name = "ExampleAppServerInstance"
