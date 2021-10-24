@@ -36,7 +36,7 @@ module "vpc2" {
   }
 }
 
-resource "aws_network_interface" "foo" {
+resource "aws_network_interface" "my_vpc" {
   subnet_id   = aws_subnet.my_subnet.id
   
 }
@@ -58,7 +58,7 @@ resource "aws_instance" "foo" {
   instance_type   = "t2.micro"
   user_data	= file("file.sh") 
   network_interface {
-  network_interface_id = aws_network_interface.foo.id
+  network_interface_id = aws_network_interface.my_vpc.id
   device_index         = 0
   }
 
