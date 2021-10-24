@@ -53,7 +53,7 @@ resource "aws_network_interface" "my_vpc" {
 }
 
 
-resource "aws_instance" "foo" {
+resource "aws_instance" "my_vpc" {
   ami             = "ami-074cce78125f09d61" 
   instance_type   = "t2.micro"
   user_data	= file("file.sh") 
