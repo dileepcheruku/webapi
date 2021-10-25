@@ -150,7 +150,7 @@ route {
    
    
    resource "aws_key_pair" "ec2key" {
-  key_name = "publicKey"
+  key_name = "new"
   public_key = "${file(var.public_key_path)}"
 }
    
