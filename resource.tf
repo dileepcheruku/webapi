@@ -52,7 +52,28 @@ resource "aws_network_interface" "my_vpc" {
    
 }
 
+ module "ec2_instance" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "~> 3.0"
 
+  name = "single-instance"
+
+  ami                    = "ami-074cce78125f09d61"
+  instance_type          = "t2.micro"
+  
+  user_data              = file("file.sh") 
+  monitoring             = true
+  vpc_security_group_ids = module.web_server_sg.security_group_id
+  subnet_id              = aws_subnet.my_subnet.id
+
+  tags = {
+    Terraform   = "true"
+    Environment = "dev"
+  }
+}   
+    
+  
+/*
 resource "aws_instance" "my_vpc" {
   ami             = "ami-074cce78125f09d61" 
   instance_type   = "t2.micro"
@@ -70,4 +91,4 @@ resource "aws_instance" "my_vpc" {
     Name = "ExampleAppServerInstance"
   }
 }
-
+*/
