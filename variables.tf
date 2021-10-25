@@ -8,7 +8,7 @@ variable "cidr_subnet" {
 }
 variable "availability_zone" {
   description = "availability zone to create subnet"
-  default = "us-east-2"
+  default = "us-east-2a"
 }
 variable "public_key_path" {
   description = "Public key path"
