@@ -1,4 +1,4 @@
-
+/*
 /*
 module "vpc1" {
   source = "terraform-aws-modules/vpc/aws"
@@ -92,3 +92,4 @@ resource "aws_instance" "my_vpc" {
   }
 }
 
+*/
