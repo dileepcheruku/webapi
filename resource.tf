@@ -149,10 +149,6 @@ route {
 }
    
    
-   resource "aws_key_pair" "ec2key" {
-  key_name = "new"
-  public_key = "${file(var.public_key_path)}"
-}
    
    
    
@@ -161,6 +157,6 @@ route {
   instance_type = "${var.instance_type}"
   subnet_id = "${aws_subnet.subnet_public.id}"
   vpc_security_group_ids = ["${aws_security_group.sg_22.id}"]
-  key_name = "${aws_key_pair.ec2key.key_name}"
+  key_name = "new"
 
 }
