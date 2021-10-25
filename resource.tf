@@ -51,7 +51,7 @@ resource "aws_network_interface" "my_vpc" {
   ingress_cidr_blocks = ["10.10.0.0/16"]
    
 }
-
+/*
  module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
@@ -71,9 +71,9 @@ resource "aws_network_interface" "my_vpc" {
     Environment = "dev"
   }
 }   
-    
+ */   
   
-/*
+
 resource "aws_instance" "my_vpc" {
   ami             = "ami-074cce78125f09d61" 
   instance_type   = "t2.micro"
@@ -91,4 +91,4 @@ resource "aws_instance" "my_vpc" {
     Name = "ExampleAppServerInstance"
   }
 }
-*/
+
