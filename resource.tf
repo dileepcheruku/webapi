@@ -1,4 +1,4 @@
-/*
+
 /*
 module "vpc1" {
   source = "terraform-aws-modules/vpc/aws"
@@ -17,7 +17,7 @@ module "vpc2" {
   
   
   
-  
+  /*
   resource "aws_vpc" "my_vpc" {
   cidr_block = "10.0.0.0/16"
 
@@ -73,7 +73,7 @@ resource "aws_network_interface" "my_vpc" {
 }   
  */   
   
-
+/*
 resource "aws_instance" "my_vpc" {
   ami             = "ami-074cce78125f09d61" 
   instance_type   = "t2.micro"
