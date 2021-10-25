@@ -98,7 +98,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_support   = true
   enable_dns_hostnames = true
   tags {
-    "Environment" = "${var.environment_tag}"
+    Environment = "${var.environment_tag}"
   }
 }
    
@@ -106,7 +106,7 @@ resource "aws_vpc" "vpc" {
    resource "aws_internet_gateway" "igw" {
   vpc_id = "${aws_vpc.vpc.id}"
   tags {
-    "Environment" = "${var.environment_tag}"
+    Environment = "${var.environment_tag}"
   }
 }
    
@@ -116,7 +116,7 @@ resource "aws_vpc" "vpc" {
   map_public_ip_on_launch = "true"
   availability_zone = "${var.availability_zone}"
   tags {
-    "Environment" = "${var.environment_tag}"
+    Environment = "${var.environment_tag}"
   }
 }
    
@@ -127,7 +127,7 @@ route {
       gateway_id = "${aws_internet_gateway.igw.id}"
   }
 tags {
-    "Environment" = "${var.environment_tag}"
+    Environment = "${var.environment_tag}"
   }
 }
    
@@ -154,7 +154,7 @@ tags {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags {
-    "Environment" = "${var.environment_tag}"
+    Environment = "${var.environment_tag}"
   }
 }
    
@@ -173,6 +173,6 @@ tags {
   vpc_security_group_ids = ["${aws_security_group.sg_22.id}"]
   key_name = "${aws_key_pair.ec2key.key_name}"
  tags {
-  "Environment" = "${var.environment_tag}"
+  Environment = "${var.environment_tag}"
  }
 }
